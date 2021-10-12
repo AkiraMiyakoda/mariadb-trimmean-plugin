@@ -94,9 +94,11 @@ namespace
             return 0.0;
         }
 
-        std::sort(values.begin(), values.end());
-
         const auto trim { static_cast<size_t>(values.size() * (percent / 100.0)) / 2 };
+        if (trim > 0) {
+            std::sort(values.begin(), values.end());
+        }
+
         const auto sum { std::accumulate(values.cbegin() + trim, values.cend() - trim, 0.0) };
 
         *is_null = 0;
