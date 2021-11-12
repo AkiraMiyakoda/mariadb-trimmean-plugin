@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -Werror -Wno-psabi")
 
-option(MARIADB_PLUGIN_DIR "Plugin directory of MariaDB/MySQL" "")
+option(MARIADB_PLUGIN_DIR "Plugin directory of MariaDB/MySQL")
 
 execute_process(COMMAND mariadb_config --cflags
     OUTPUT_VARIABLE MARIADB_INCLUDE_DIRS
@@ -23,7 +23,7 @@ execute_process(COMMAND mariadb_config --cflags
 string(REPLACE "-I" "" MARIADB_INCLUDE_DIRS ${MARIADB_INCLUDE_DIRS})
 string(REPLACE " " ";" MARIADB_INCLUDE_DIRS ${MARIADB_INCLUDE_DIRS})
 
-if ("${MARIADB_PLUGIN_DIR}" STREQUAL "")
+if ("${MARIADB_PLUGIN_DIR}" STREQUAL "OFF")
     execute_process(COMMAND mariadb_config --plugindir
         OUTPUT_VARIABLE MARIADB_PLUGIN_DIR
         OUTPUT_STRIP_TRAILING_WHITESPACE
