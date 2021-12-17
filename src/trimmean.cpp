@@ -9,7 +9,8 @@
 #include <algorithm>
 #include <numeric>
 #include <vector>
-#include <mysql.h>
+
+#include "trimmean.h"
 
 namespace
 {
@@ -110,27 +111,27 @@ namespace
 // TRIMMEAN_10
 ////////////////////////////////////////////////////////////////////////////////
 
-extern "C" bool trimmean_10_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+bool trimmean_10_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
     return trimmean_init_<10>(initid, args, message);
 }
 
-extern "C" void trimmean_10_deinit(UDF_INIT *initid)
+void trimmean_10_deinit(UDF_INIT *initid)
 {
     trimmean_deinit_(initid);
 }
 
-extern "C" void trimmean_10_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
+void trimmean_10_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
 {
     trimmean_clear_(initid, nullptr, nullptr);
 }
 
-extern "C" void trimmean_10_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
+void trimmean_10_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
 {
     trimmean_add_(initid, args, nullptr, nullptr);
 }
 
-extern "C" double trimmean_10(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
+double trimmean_10(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
 {
     return trimmean_<10>(initid, nullptr, is_null, nullptr);
 }
@@ -139,27 +140,27 @@ extern "C" double trimmean_10(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_nu
 // TRIMMEAN_20
 ////////////////////////////////////////////////////////////////////////////////
 
-extern "C" bool trimmean_20_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+bool trimmean_20_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
     return trimmean_init_<20>(initid, args, message);
 }
 
-extern "C" void trimmean_20_deinit(UDF_INIT *initid)
+void trimmean_20_deinit(UDF_INIT *initid)
 {
     trimmean_deinit_(initid);
 }
 
-extern "C" void trimmean_20_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
+void trimmean_20_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
 {
     trimmean_clear_(initid, nullptr, nullptr);
 }
 
-extern "C" void trimmean_20_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
+void trimmean_20_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
 {
     trimmean_add_(initid, args, nullptr, nullptr);
 }
 
-extern "C" double trimmean_20(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
+double trimmean_20(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
 {
     return trimmean_<20>(initid, nullptr, is_null, nullptr);
 }
@@ -168,27 +169,27 @@ extern "C" double trimmean_20(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_nu
 // TRIMMEAN_30
 ////////////////////////////////////////////////////////////////////////////////
 
-extern "C" bool trimmean_30_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+bool trimmean_30_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
     return trimmean_init_<30>(initid, args, message);
 }
 
-extern "C" void trimmean_30_deinit(UDF_INIT *initid)
+void trimmean_30_deinit(UDF_INIT *initid)
 {
     trimmean_deinit_(initid);
 }
 
-extern "C" void trimmean_30_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
+void trimmean_30_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
 {
     trimmean_clear_(initid, nullptr, nullptr);
 }
 
-extern "C" void trimmean_30_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
+void trimmean_30_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
 {
     trimmean_add_(initid, args, nullptr, nullptr);
 }
 
-extern "C" double trimmean_30(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
+double trimmean_30(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
 {
     return trimmean_<30>(initid, nullptr, is_null, nullptr);
 }
@@ -197,27 +198,27 @@ extern "C" double trimmean_30(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_nu
 // TRIMMEAN_40
 ////////////////////////////////////////////////////////////////////////////////
 
-extern "C" bool trimmean_40_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+bool trimmean_40_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
     return trimmean_init_<40>(initid, args, message);
 }
 
-extern "C" void trimmean_40_deinit(UDF_INIT *initid)
+void trimmean_40_deinit(UDF_INIT *initid)
 {
     trimmean_deinit_(initid);
 }
 
-extern "C" void trimmean_40_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
+void trimmean_40_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
 {
     trimmean_clear_(initid, nullptr, nullptr);
 }
 
-extern "C" void trimmean_40_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
+void trimmean_40_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
 {
     trimmean_add_(initid, args, nullptr, nullptr);
 }
 
-extern "C" double trimmean_40(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
+double trimmean_40(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
 {
     return trimmean_<40>(initid, nullptr, is_null, nullptr);
 }
@@ -226,27 +227,27 @@ extern "C" double trimmean_40(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_nu
 // TRIMMEAN_50
 ////////////////////////////////////////////////////////////////////////////////
 
-extern "C" bool trimmean_50_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+bool trimmean_50_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
     return trimmean_init_<50>(initid, args, message);
 }
 
-extern "C" void trimmean_50_deinit(UDF_INIT *initid)
+void trimmean_50_deinit(UDF_INIT *initid)
 {
     trimmean_deinit_(initid);
 }
 
-extern "C" void trimmean_50_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
+void trimmean_50_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
 {
     trimmean_clear_(initid, nullptr, nullptr);
 }
 
-extern "C" void trimmean_50_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
+void trimmean_50_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
 {
     trimmean_add_(initid, args, nullptr, nullptr);
 }
 
-extern "C" double trimmean_50(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
+double trimmean_50(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
 {
     return trimmean_<50>(initid, nullptr, is_null, nullptr);
 }
@@ -255,27 +256,27 @@ extern "C" double trimmean_50(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_nu
 // TRIMMEAN_60
 ////////////////////////////////////////////////////////////////////////////////
 
-extern "C" bool trimmean_60_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+bool trimmean_60_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
     return trimmean_init_<60>(initid, args, message);
 }
 
-extern "C" void trimmean_60_deinit(UDF_INIT *initid)
+void trimmean_60_deinit(UDF_INIT *initid)
 {
     trimmean_deinit_(initid);
 }
 
-extern "C" void trimmean_60_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
+void trimmean_60_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
 {
     trimmean_clear_(initid, nullptr, nullptr);
 }
 
-extern "C" void trimmean_60_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
+void trimmean_60_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
 {
     trimmean_add_(initid, args, nullptr, nullptr);
 }
 
-extern "C" double trimmean_60(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
+double trimmean_60(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
 {
     return trimmean_<60>(initid, nullptr, is_null, nullptr);
 }
@@ -284,27 +285,27 @@ extern "C" double trimmean_60(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_nu
 // TRIMMEAN_70
 ////////////////////////////////////////////////////////////////////////////////
 
-extern "C" bool trimmean_70_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+bool trimmean_70_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
     return trimmean_init_<70>(initid, args, message);
 }
 
-extern "C" void trimmean_70_deinit(UDF_INIT *initid)
+void trimmean_70_deinit(UDF_INIT *initid)
 {
     trimmean_deinit_(initid);
 }
 
-extern "C" void trimmean_70_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
+void trimmean_70_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
 {
     trimmean_clear_(initid, nullptr, nullptr);
 }
 
-extern "C" void trimmean_70_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
+void trimmean_70_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
 {
     trimmean_add_(initid, args, nullptr, nullptr);
 }
 
-extern "C" double trimmean_70(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
+double trimmean_70(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
 {
     return trimmean_<70>(initid, nullptr, is_null, nullptr);
 }
@@ -313,27 +314,27 @@ extern "C" double trimmean_70(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_nu
 // TRIMMEAN_80
 ////////////////////////////////////////////////////////////////////////////////
 
-extern "C" bool trimmean_80_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+bool trimmean_80_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
     return trimmean_init_<80>(initid, args, message);
 }
 
-extern "C" void trimmean_80_deinit(UDF_INIT *initid)
+void trimmean_80_deinit(UDF_INIT *initid)
 {
     trimmean_deinit_(initid);
 }
 
-extern "C" void trimmean_80_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
+void trimmean_80_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
 {
     trimmean_clear_(initid, nullptr, nullptr);
 }
 
-extern "C" void trimmean_80_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
+void trimmean_80_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
 {
     trimmean_add_(initid, args, nullptr, nullptr);
 }
 
-extern "C" double trimmean_80(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
+double trimmean_80(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
 {
     return trimmean_<80>(initid, nullptr, is_null, nullptr);
 }
@@ -342,27 +343,27 @@ extern "C" double trimmean_80(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_nu
 // TRIMMEAN_90
 ////////////////////////////////////////////////////////////////////////////////
 
-extern "C" bool trimmean_90_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+bool trimmean_90_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
     return trimmean_init_<90>(initid, args, message);
 }
 
-extern "C" void trimmean_90_deinit(UDF_INIT *initid)
+void trimmean_90_deinit(UDF_INIT *initid)
 {
     trimmean_deinit_(initid);
 }
 
-extern "C" void trimmean_90_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
+void trimmean_90_clear(UDF_INIT *initid, unsigned char *, unsigned char *)
 {
     trimmean_clear_(initid, nullptr, nullptr);
 }
 
-extern "C" void trimmean_90_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
+void trimmean_90_add(UDF_INIT *initid, UDF_ARGS *args, unsigned char *, unsigned char *)
 {
     trimmean_add_(initid, args, nullptr, nullptr);
 }
 
-extern "C" double trimmean_90(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
+double trimmean_90(UDF_INIT *initid, UDF_ARGS *, unsigned char *is_null, unsigned char *)
 {
     return trimmean_<90>(initid, nullptr, is_null, nullptr);
 }
