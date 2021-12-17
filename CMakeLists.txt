@@ -15,6 +15,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -Werror -Wno-psabi")
 
 option(MARIADB_PLUGIN_DIR "Plugin directory of MariaDB/MySQL")
+option(BUILD_TESTS "Whether or not build unit tests")
 
 execute_process(COMMAND mariadb_config --cflags
     OUTPUT_VARIABLE MARIADB_INCLUDE_DIRS
@@ -32,3 +33,8 @@ if ("${MARIADB_PLUGIN_DIR}" STREQUAL "OFF")
 endif()
 
 add_subdirectory(src)
+
+if (BUILD_TESTS)
+    enable_testing()
+    add_subdirectory(tests)
+endif()

@@ -7,6 +7,8 @@ set(TRIMMEAN_SRC
     trimmean.cpp
 )
 
+# Create static lib and shared one from the same source for unit tests.
+
 add_library(trimmean_plugin_static ${TRIMMEAN_SRC})
 target_include_directories(trimmean_plugin_static
     PRIVATE ${MARIADB_INCLUDE_DIRS}
