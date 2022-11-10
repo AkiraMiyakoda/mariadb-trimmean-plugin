@@ -8,12 +8,19 @@ set(TESTS_SRC
 )
 
 add_executable(test_runner ${TESTS_SRC})
+
+target_compile_options(test_runner PRIVATE -Wall -Wextra -Wpedantic -Werror)
+
 target_include_directories(test_runner
     PRIVATE ${MARIADB_INCLUDE_DIRS}
-    PRIVATE ${PROJECT_SOURCE_DIR}/3rdparty/catch2
+    PRIVATE ${Boost_INCLUDE_DIRS}
     PRIVATE ${PROJECT_SOURCE_DIR}/src
 )
-target_link_libraries(test_runner trimmean_plugin_static)
 
-add_test(test_runner test_runner)
-add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} -V DEPENDS test_runner)
+target_link_libraries(test_runner
+    trimmean_plugin
+    ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+)
+
+add_test(test_runner COMMAND test_runner -l test_suite)
+add_custom_target(check COMMAND test_runner -l test_suite)

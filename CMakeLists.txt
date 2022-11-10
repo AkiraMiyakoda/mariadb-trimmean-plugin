@@ -12,7 +12,6 @@ enable_language(CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -Werror -Wno-psabi")
 
 option(MARIADB_PLUGIN_DIR "Plugin directory of MariaDB/MySQL")
 option(BUILD_TESTS "Whether or not build unit tests")
@@ -25,16 +24,13 @@ string(REPLACE "-I" "" MARIADB_INCLUDE_DIRS ${MARIADB_INCLUDE_DIRS})
 string(REPLACE " " ";" MARIADB_INCLUDE_DIRS ${MARIADB_INCLUDE_DIRS})
 
 if ("${MARIADB_PLUGIN_DIR}" STREQUAL "OFF")
-    execute_process(COMMAND mariadb_config --plugindir
-        OUTPUT_VARIABLE MARIADB_PLUGIN_DIR
-        OUTPUT_STRIP_TRAILING_WHITESPACE
-    )
-    message(STATUS "Plugin directory detected: ${MARIADB_PLUGIN_DIR}")
+    message(WARNING "Option MARIADB_PLUGIN_DIR is required to install plugin")
 endif()
 
 add_subdirectory(src)
 
 if (BUILD_TESTS)
     enable_testing()
+    find_package(Boost REQUIRED COMPONENTS unit_test_framework)
     add_subdirectory(tests)
 endif()
