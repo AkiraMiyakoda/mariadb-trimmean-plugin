@@ -9,7 +9,8 @@ set(TESTS_SRC
 
 add_executable(test_runner ${TESTS_SRC})
 
-target_compile_options(test_runner PRIVATE -Wall -Wextra -Wpedantic -Werror)
+target_compile_options(test_runner
+    PRIVATE -Wall -Wextra -Wpedantic -Werror -fcompare-debug-second)
 
 target_include_directories(test_runner
     PRIVATE ${MARIADB_INCLUDE_DIRS}
