@@ -12,11 +12,11 @@ TRIMMEAN is an aggregate function returns the mean of the interior of a data set
 
 * **expr** Required. The values to trim and average. NULL is excluded from the data set before calculating the number of excluded data points.
 
-* **exclude_proportion** Required. The fractional number of data points to exclude from the calculation. For example, if percent = 0.2, 4 points are trimmed from a data set of 20 points (20 x 0.2): 2 from the top and 2 from the bottom of the set.
+* **exclude_proportion** Required. The fractional number of data points to exclude from the calculation. For example, if `exclude_proportion` = 0.2, 4 points are trimmed from a data set of 20 points (20 x 0.2): 2 from the top and 2 from the bottom of the set.
 
 ## Remarks
 
-TRIMMEAN rounds the number of excluded data points down to the nearest multiple of 2. If exclude_proportion = 0.1, 10 percent of 30 data points equals 3 points. For symmetry, TRIMMEAN excludes a single value from the top and bottom of the data set.
+TRIMMEAN rounds the number of excluded data points down to the nearest multiple of 2. If `exclude_proportion` = 0.1, 10 percent of 30 data points equals 3 points. For symmetry, TRIMMEAN excludes a single value from the top and bottom of the data set.
 
 ## Dependencies
 
@@ -43,7 +43,7 @@ make
 sudo make install
 ```
 
-Don't forget to run this statement to define the function in in your MariaDB client.
+Don't forget to run this statement to define the function in your MariaDB client.
 ```
 CREATE AGGREGATE FUNCTION trimmean RETURNS REAL SONAME 'libtrimmean_plugin.so';
 ```
