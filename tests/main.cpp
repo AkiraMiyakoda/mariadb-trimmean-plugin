@@ -31,8 +31,7 @@ const UDF_INIT udf_init{1, 0, 0, nullptr, 1};
 std::array<Item_result, 2> arg_type{};
 std::array<double *, 2> arg_ptrs{};
 
-UDF_ARGS udf_args{2, arg_type.data(),
-                  reinterpret_cast<char **>(arg_ptrs.data()), nullptr, nullptr};
+UDF_ARGS udf_args{2, arg_type.data(), reinterpret_cast<char **>(arg_ptrs.data()), nullptr, nullptr};
 
 std::array<double, 10> values{1, 2, 4, 8, 16, 32, 64, 128, 256, 512};
 std::array<char, 1024> messages{};

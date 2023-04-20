@@ -31,13 +31,9 @@ T *context_cast(U *p) {
   return static_cast<T *>(static_cast<void *>(p));
 }
 
-void set_context(UDF_INIT *initid, TRIMMEAN_CONTEXT *context) {
-  initid->ptr = context_cast<char>(context);
-}
+void set_context(UDF_INIT *initid, TRIMMEAN_CONTEXT *context) { initid->ptr = context_cast<char>(context); }
 
-TRIMMEAN_CONTEXT *get_context(UDF_INIT *initid) {
-  return context_cast<TRIMMEAN_CONTEXT>(initid->ptr);
-}
+TRIMMEAN_CONTEXT *get_context(UDF_INIT *initid) { return context_cast<TRIMMEAN_CONTEXT>(initid->ptr); }
 }  // namespace
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -83,8 +79,7 @@ void trimmean_add(UDF_INIT *initid, UDF_ARGS *args, char *, char *is_error) {
   }
 }
 
-double trimmean(UDF_INIT *initid, UDF_ARGS *args, char *is_null,
-                char *is_error) {
+double trimmean(UDF_INIT *initid, UDF_ARGS *args, char *is_null, char *is_error) {
   if (args->args[1] == nullptr) {
     *is_null = 1;
     *is_error = 1;
@@ -105,8 +100,7 @@ double trimmean(UDF_INIT *initid, UDF_ARGS *args, char *is_null,
     return 0.0;
   }
 
-  const auto exclude{static_cast<size_t>(values.size() * exclude_proportion) /
-                     2};
+  const auto exclude{static_cast<size_t>(values.size() * exclude_proportion) / 2};
   if (exclude > 0) {
     std::sort(values.begin(), values.end());
   }
