@@ -8,6 +8,7 @@
 #include <mysql.h>
 
 #include <algorithm>
+#include <boost/container/small_vector.hpp>
 #include <cstring>
 #include <numeric>
 #include <vector>
@@ -17,8 +18,12 @@
 
 namespace {
 
+constexpr size_t INITIAL_CAPACITY{64};
+
+using Container = boost::container::small_vector<double, INITIAL_CAPACITY>;
+
 struct TRIMMEAN_CONTEXT {
-  std::vector<double> values_{};
+  Container values_{};
 };
 
 template <typename T, typename U>
@@ -62,16 +67,20 @@ void trimmean_deinit(UDF_INIT *initid) { delete ::get_context(initid); }
 
 void trimmean_clear(UDF_INIT *initid, char *, char *) {
   auto &values{::get_context(initid)->values_};
-  std::vector<double>().swap(values);
+  Container().swap(values);
 }
 
-void trimmean_add(UDF_INIT *initid, UDF_ARGS *args, char *, char *) {
+void trimmean_add(UDF_INIT *initid, UDF_ARGS *args, char *, char *is_error) {
   if (args->args[0] == nullptr) {
     return;
   }
 
   auto &values{::get_context(initid)->values_};
-  values.push_back(*::context_cast<double>(args->args[0]));
+  try {
+    values.push_back(*::context_cast<double>(args->args[0]));
+  } catch (std::bad_alloc &) {
+    *is_error = 1;
+  }
 }
 
 double trimmean(UDF_INIT *initid, UDF_ARGS *args, char *is_null,
