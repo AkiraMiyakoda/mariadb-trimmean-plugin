@@ -14,9 +14,10 @@ extern "C" {
 bool trimmean_init(UDF_INIT *initid, UDF_ARGS *args, char *message);
 void trimmean_deinit(UDF_INIT *initid);
 void trimmean_clear(UDF_INIT *initid, char *is_null, char *is_error);
-void trimmean_add(UDF_INIT *initid, UDF_ARGS *args, char *is_null, char *is_error);
-double trimmean(UDF_INIT *initid, UDF_ARGS *args, char *is_null, char *is_error);
-
+void trimmean_add(UDF_INIT *initid, UDF_ARGS *args, char *is_null,
+                  char *is_error);
+double trimmean(UDF_INIT *initid, UDF_ARGS *args, char *is_null,
+                char *is_error);
 }
 
-#endif // MARIADB_TRIMMEAN_61448DDB_77AB_4ACE_9E65_15850736E4DD
+#endif  // MARIADB_TRIMMEAN_61448DDB_77AB_4ACE_9E65_15850736E4DD
