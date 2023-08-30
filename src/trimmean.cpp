@@ -18,12 +18,16 @@
 
 namespace {
 
-constexpr size_t INITIAL_CAPACITY{64};
+constexpr size_t INITIAL_CAPACITY{32};
 
-using Container = boost::container::small_vector<double, INITIAL_CAPACITY>;
+using Container = std::vector<double>;
 
 struct TRIMMEAN_CONTEXT {
   Container values_{};
+
+  TRIMMEAN_CONTEXT() {
+    this->values_.reserve(INITIAL_CAPACITY);
+  }
 };
 
 template <typename T, typename U>
