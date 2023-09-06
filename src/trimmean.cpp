@@ -8,7 +8,6 @@
 #include <mysql.h>
 
 #include <algorithm>
-#include <boost/container/small_vector.hpp>
 #include <cstring>
 #include <numeric>
 #include <vector>
