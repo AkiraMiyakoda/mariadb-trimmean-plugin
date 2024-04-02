@@ -1,4 +1,6 @@
-## Trimmean plugin for MariaDB/MySQL
+# Trimmean plugin for MariaDB/MySQL
+
+### NOTICE! This project is now obsolete and no longer maintained. New [Rust-based version](https://github.com/AkiraMiyakoda/mariadb-trimmean-rs) is available
 
 This is a MariaDB/MySQL plugin offers an aggregate function inspired by TRIMMEAN() of Microsoft Excel.
 
@@ -44,6 +46,7 @@ sudo make install
 ```
 
 Don't forget to run this statement to define the function in your MariaDB client.
+
 ```
 CREATE AGGREGATE FUNCTION trimmean RETURNS REAL SONAME 'libtrimmean_plugin.so';
 ```
